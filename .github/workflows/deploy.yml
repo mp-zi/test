@@ -1,0 +1,23 @@
+name: Deploy demo
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build
+    runs-on: self-hosted
+    steps:
+      - name: Do nothing (just needs to be green)
+        run: echo "Building... done."
+
+  deploy:
+    name: Deploy to stg
+    needs: build
+    runs-on: self-hosted
+    environment: stg
+    steps:
+      - name: Deploy
+        run: echo "Deploying to stg..."
