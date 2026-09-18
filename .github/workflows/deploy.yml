@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     name: Build
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: Do nothing (just needs to be green)
         run: echo "Building... done."
@@ -16,7 +16,7 @@ jobs:
   deploy:
     name: Deploy to stg
     needs: build
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     environment: stg
     steps:
       - name: Deploy
